@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $login_error = "User does not exist.";
         }
     } else {
-        $login_error = "Please fill out all arrays.";
+        $login_error = "Please fill in all fields.";
     }
 }
 ?>

@@ -5,7 +5,6 @@ include("db.php");
 include("function.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    // Načti data z POST
     $first_name = trim($_POST['first_name'] ?? '');
     $last_name = trim($_POST['last_name'] ?? '');
     $username = trim($_POST['username'] ?? '');
@@ -15,10 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     
     if (!empty($first_name) && !empty($last_name) && !empty($username) && !empty($email) && !empty($password)) {
         
-        // Hashování hesla v PHP (doporučeno)
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
         
-        // Připrav parametrizovaný dotaz (bezpečnost)
         $query = 'INSERT INTO users (first_name, last_name, username, email, password_hash, role_id) VALUES ($1, $2, $3, $4, $5, $6)';
         
         $result = pg_query_params($con, $query, [
@@ -34,10 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             header("Location: login.php");
             exit;
         } else {
-            echo "Chyba při registraci uživatele.";
+            echo "User registration error.";
         }
     } else {
-        echo "Vyplň prosím všechna pole.";
+        echo "Please fill in all fields.";
     }
 }
 ?>
