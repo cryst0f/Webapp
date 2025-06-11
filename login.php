@@ -50,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="alert alert-danger"><?php echo htmlspecialchars($login_error); ?></div>
         <?php endif; ?>
 
-        <input type="text" class="form-control mb-3" name="username" placeholder="Uživatelské jméno" required autofocus>
-        <input type="password" class="form-control mb-3" name="password" placeholder="Heslo" required>      
+        <input type="text" class="form-control mb-3" name="username" placeholder="Username" required autofocus>
+        <input type="password" class="form-control mb-3" name="password" placeholder="Password" required>      
         <button class="btn btn-lg btn-primary w-100" type="submit">Login</button>   
     </form>
 </div>

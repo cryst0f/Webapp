@@ -55,3 +55,10 @@ body {
   margin-left: 240px;
   padding: 20px;
 }
+
+/* sign up*/
+.wrapper {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 15px;
+}

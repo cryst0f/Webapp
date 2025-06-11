@@ -16,13 +16,13 @@ $user_data = check_login($con);
 <body>
   <div class="sidebar">
     <h2>Menu</h2>
-    <a href="#">Profil</a>
-    <a href="#">Úložiště</a>
-    <a href="#">Odpracovaný čas</a>
-    <a href="#">Kalendář</a>
-    <a href="#">Zprávy</a>
-    <a href="#">Registrace uživatele</a>
-    <a href="logout.php">Odhlásit se</a>
+    <a href="#">Profile</a>
+    <a href="#">Storage</a>
+    <a href="#">Hours worked</a>
+    <a href="#">Calendar</a>
+    <a href="#">Messages</a>
+    <a href="signup.php">User registration</a>
+    <a href="logout.php">Log out</a>
   </div>
 
   <div class="main">

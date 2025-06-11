@@ -40,53 +40,33 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Signup</title>
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
 
-    <style type="text/css">
-        #text{
+<div class="wrapper">
+    <form class="form-signin" method="post">
+        <h2 class="form-signin-heading text-center mb-4">Signup</h2>
 
-            height: 25px;
-            border-radius: 5px;
-            padding: 4px;
-            border: solid thin #aaa;
-            width: 100%;
-        }
+        <?php if (!empty($signup_error)): ?>
+            <div class="alert alert-danger"><?php echo htmlspecialchars($signup_error); ?></div>
+        <?php endif; ?>
 
-        #button{
+        <input type="text" class="form-control mb-2" name="first_name" placeholder="First Name" required>
+        <input type="text" class="form-control mb-2" name="last_name" placeholder="Last Name" required>
+        <input type="text" class="form-control mb-2" name="username" placeholder="Username" required>
+        <input type="email" class="form-control mb-2" name="email" placeholder="Email" required>
+        <input type="password" class="form-control mb-2" name="password" placeholder="Password" required>
+        <input type="text" class="form-control mb-3" name="role_id" placeholder="Role ID" required>
 
-            padding: 10px;
-            width: 100px;
-            color: white;
-            background-color: Lightblue;
-            border: none;
-        }
+        <button class="btn btn-lg btn-primary w-100" type="submit">Sign Up</button>
+    </form>
+</div>
 
-        #box{
-
-            background-color: grey;
-            margin: auto;
-            width: 300px;
-            padding: 20px;
-        }
-
-    </style>
-
-        <div id="box">
-            <form method= "post">
-                <div style="font-sizeL 20px; magin: 10px;color: white;">Signup</div>
-                <input id = "text" type="text" name="first_name"><br><br>
-                <input id = "text" type="text" name="last_name"><br><br>
-                <input id = "text" type="text" name="username"><br><br>
-                <input id = "text" type="text" name="email"><br><br>
-                <input id = "text" type="password" name="password"><br><br>
-                <input id = "text" type="text" name="role_id"><br><br>
-                <input id = "button"type="submit" value="Signup"><br><br>
-                
-            </form>
-        </div>
-    </body>
+</body>
 </html>
