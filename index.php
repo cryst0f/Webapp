@@ -7,19 +7,21 @@ $user_data = check_login($con);
 ?>
 
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Interní systém</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="sidebar">
     <h2>Menu</h2>
+    <a href="index.php">Home</a>
     <a href="#">Profile</a>
     <a href="#">Storage</a>
     <a href="#">Hours worked</a>
-    <a href="#">Calendar</a>
+    <a href="calendar.php">Calendar</a>
     <a href="#">Messages</a>
     <a href="signup.php">User registration</a>
     <a href="logout.php">Log out</a>

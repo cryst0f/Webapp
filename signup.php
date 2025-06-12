@@ -43,30 +43,44 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Signup</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 
-<div class="wrapper">
-    <form class="form-signin" method="post">
-        <h2 class="form-signin-heading text-center mb-4">Signup</h2>
+  <div class="sidebar">
+    <h2>Menu</h2>
+    <a href="index.php">Home</a>
+    <a href="#">Profile</a>
+    <a href="#">Storage</a>
+    <a href="#">Hours worked</a>
+    <a href="calendar.php">Calendar</a>
+    <a href="#">Messages</a>
+    <a href="signup.php">User registration</a>
+    <a href="logout.php">Log out</a>
+  </div>
 
-        <?php if (!empty($signup_error)): ?>
-            <div class="alert alert-danger"><?php echo htmlspecialchars($signup_error); ?></div>
-        <?php endif; ?>
+  <div class="main">
+    <div class="wrapper">
+      <form class="form-signin" method="post">
+          <h2 class="form-signin-heading text-center mb-4">Signup</h2>
 
-        <input type="text" class="form-control mb-2" name="first_name" placeholder="First Name" required>
-        <input type="text" class="form-control mb-2" name="last_name" placeholder="Last Name" required>
-        <input type="text" class="form-control mb-2" name="username" placeholder="Username" required>
-        <input type="email" class="form-control mb-2" name="email" placeholder="Email" required>
-        <input type="password" class="form-control mb-2" name="password" placeholder="Password" required>
-        <input type="text" class="form-control mb-3" name="role_id" placeholder="Role ID" required>
+          <?php if (!empty($signup_error)): ?>
+              <div class="alert alert-danger"><?php echo htmlspecialchars($signup_error); ?></div>
+          <?php endif; ?>
 
-        <button class="btn btn-lg btn-primary w-100" type="submit">Sign Up</button>
-    </form>
-</div>
+          <input type="text" class="form-control mb-2" name="first_name" placeholder="First Name" required>
+          <input type="text" class="form-control mb-2" name="last_name" placeholder="Last Name" required>
+          <input type="text" class="form-control mb-2" name="username" placeholder="Username" required>
+          <input type="email" class="form-control mb-2" name="email" placeholder="Email" required>
+          <input type="password" class="form-control mb-2" name="password" placeholder="Password" required>
+          <input type="text" class="form-control mb-3" name="role_id" placeholder="Role ID" required>
+
+          <button class="btn btn-lg btn-primary w-100" type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
 
 </body>
 </html>
