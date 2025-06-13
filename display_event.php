@@ -33,6 +33,7 @@ if ($results === false) {
                 'start' => date("Y-m-d\TH:i:s", strtotime($data_row['event_start_date'])),
                 'end' => date("Y-m-d\TH:i:s", strtotime($data_row['event_end_date'])),
                 'color' => '#'.substr(uniqid(), -6), // unikátní barva - můžeš upravit dle potřeby
+                'test'
             ];
         }
         $data = [

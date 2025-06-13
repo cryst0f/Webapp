@@ -22,6 +22,7 @@ $user_data = check_login($con);
     <a href="#">Storage</a>
     <a href="#">Hours worked</a>
     <a href="calendar.php">Calendar</a>
+    <a href="shift_planner.php">Shift planner</a>
     <a href="#">Messages</a>
     <a href="signup.php">User registration</a>
     <a href="logout.php">Log out</a>
