@@ -59,3 +59,49 @@ html {
   padding: 20px;
 }
 
+/* Submenu pro Shift planner */
+.submenu {
+  display: none;
+  padding-left: 15px;
+  background-color: #34495e;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.submenu a {
+  font-size: 1em;
+  color: white;
+  background-color: #3a4a5a;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.2s ease;
+}
+
+.submenu a:hover {
+  background-color: #4a6a8a;
+}
+
+
+/* Tlačítko na rozbalení */
+.submenu-toggle {
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  display: block;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.submenu-toggle:hover {
+  background-color: #34495e;
+}
+
+.menu-group {
+  display: block;
+  margin-bottom: 10px;
+}
+
+
