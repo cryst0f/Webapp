@@ -7,7 +7,7 @@ $user_data = check_login($con);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
   <meta charset="UTF-8" />
   <title>Interní systém</title>
@@ -15,46 +15,29 @@ $user_data = check_login($con);
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Menu</h2>
-    <a href="index.php">Home</a>
-    <a href="#">Profile</a>
-    <a href="#">Storage</a>
-    <a href="#">Hours worked</a>
-    <a href="calendar.php">Calendar</a>
 
-<div class="menu-group">
-  <a href="#" class="submenu-toggle">Shift planner ▼</a>
-  <div class="submenu">
-    <a href="shift_planner.php">Create</a>
-    <a href="shift_edit.php">Edit</a>
-  </div>
+<?php include 'sidebar.php'; ?>
+
+<div class="main">
+  <h1>Vítej, <?php echo htmlspecialchars($user_data['username']); ?>!</h1>
+  <p>Toto je hlavní přehled interního systému.</p>
 </div>
 
-    <a href="#">Messages</a>
-    <a href="signup.php">User registration</a>
-    <a href="logout.php">Log out</a>
-  </div>
-
-  <div class="main">
-    <h1>Vítej, <?php echo htmlspecialchars($user_data['username']); ?>!</h1>
-    <p>Toto je hlavní přehled interního systému.</p>
-  </div>
-
-  <script>
-    document.querySelectorAll('.submenu-toggle').forEach(toggle => {
-      toggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        const submenu = this.nextElementSibling;
-        if (submenu.style.display === 'block') {
-          submenu.style.display = 'none';
-          this.textContent = "Shift planner ▼";
-        } else {
-          submenu.style.display = 'block';
-          this.textContent = "Shift planner ▲";
-        }
-      });
+<script>
+  document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const submenu = this.nextElementSibling;
+      if (submenu.style.display === 'block') {
+        submenu.style.display = 'none';
+        this.textContent = "Shift planner ▼";
+      } else {
+        submenu.style.display = 'block';
+        this.textContent = "Shift planner ▲";
+      }
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>

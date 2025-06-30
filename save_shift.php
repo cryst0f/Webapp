@@ -44,5 +44,5 @@ for ($i = 0; $i < $count; $i++) {
     }
 }
 
-echo "Uloženo směn: $successCount / $count";
+echo "Amount of saved shifts: $successCount / $count";
 ?>

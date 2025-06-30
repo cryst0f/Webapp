@@ -22,25 +22,11 @@ $user_data = check_login($con);
 </head>
 <body>
 
-<!-- Sidebar -->
-<div class="sidebar">
-  <h2>Menu</h2>
-    <a href="index.php">Home</a>
-    <a href="#">Profile</a>
-    <a href="#">Storage</a>
-    <a href="#">Hours worked</a>
-    <a href="calendar.php">Calendar</a>
-  <?php if (in_array($_SESSION['role_id'], [1, 2, 3])): ?>
-    <a href="shift_planner.php">Shift planner</a>
-  <?php endif; ?>
-    <a href="#">Messages</a>
-    <a href="signup.php">User registration</a>
-    <a href="logout.php">Log out</a>
-</div>
+<?php include 'sidebar.php'; ?>
 
 <!-- Main content -->
 <div class="main">
-  <h1>Plánování směn</h1>
+  <h1>Shift planner</h1>
 
   <div id="successAlert" class="alert alert-success d-none" role="alert"></div>
 
@@ -48,12 +34,12 @@ $user_data = check_login($con);
     <table id="shiftsTable" class="table table-bordered">
       <thead>
         <tr>
-          <th>Uživatel</th>
-          <th>Směna</th>
-          <th>Datum směny</th>
-          <th>Začátek</th>
-          <th>Konec</th>
-          <th>Akce</th>
+          <th>User</th>
+          <th>Shift</th>
+          <th>Shift date</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -71,8 +57,8 @@ $user_data = check_login($con);
           <td>
             <select name="event_name[]" class="shift_type" required>
               <option value="" disabled selected>Vyber směnu</option>
-              <option value="Ranní">Ranní</option>
-              <option value="Odpolední">Odpolední</option>
+              <option value="Morning">Morning</option>
+              <option value="Afternoon">Afternoon</option>
             </select>
           </td>
           <td><input type="date" name="shift_date[]" required></td>
@@ -83,24 +69,23 @@ $user_data = check_login($con);
       </tbody>
     </table>
 
-    <button type="button" id="addShiftBtn" class="btn btn-primary">+ Přidat směnu</button>
+    <button type="button" id="addShiftBtn" class="btn btn-primary">+Add shift</button>
     <br><br>
-    <button type="submit" class="btn btn-success">Uložit všechny směny</button>
+    <button type="submit" class="btn btn-success">Save all shifts</button>
   </form>
 </div>
 
 <script>
-  // Automatické nastavení časů podle typu směny
   function setShiftTimes(row) {
     const shiftSelect = row.querySelector('.shift_type');
     const startInput = row.querySelector('.start_time');
     const endInput = row.querySelector('.end_time');
 
     shiftSelect.addEventListener('change', function() {
-      if (this.value === 'Ranní') {
+      if (this.value === 'Morning') {
         startInput.value = '06:00';
         endInput.value = '14:00';
-      } else if (this.value === 'Odpolední') {
+      } else if (this.value === 'Afternoon') {
         startInput.value = '14:00';
         endInput.value = '22:00';
       } else {
@@ -139,7 +124,6 @@ $user_data = check_login($con);
     }
   });
 
-  // AJAX odeslání formuláře
   document.getElementById('shiftForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -155,7 +139,6 @@ $user_data = check_login($con);
       alertBox.textContent = data;
       alertBox.classList.remove('d-none');
 
-      // Automatický refresh po 2 sekundách
       setTimeout(() => {
         location.reload();
       }, 2000);
@@ -163,6 +146,16 @@ $user_data = check_login($con);
     .catch(error => {
       alert("Nastala chyba při ukládání směn.");
       console.error("Chyba:", error);
+    });
+  });
+
+  // Submenu toggle
+  document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const submenu = this.nextElementSibling;
+      submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+      this.textContent = submenu.style.display === 'block' ? "Shift planner ▲" : "Shift planner ▼";
     });
   });
 </script>
